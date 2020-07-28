@@ -1,4 +1,4 @@
-# Weather App
+# Weather
 
 #### Automatically grabs weather from user's current location, 2018.03.06
 
@@ -17,7 +17,7 @@ Fulfill the below user stories.
 ## Setup
 
 REMOTE
-* Go to https://rotyflo.github.io/weather-app/
+* Go to https://rotyflo.github.io/weather/
 
 LOCAL
 * Clone this repository (or download and extract zip file)
