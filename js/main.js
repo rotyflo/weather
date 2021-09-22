@@ -33,8 +33,10 @@ $(document).ready(function () {
     });
   }
 
+  let token = "";//process.env.TOKEN;
+
   function getWeather(lat, lon) {
-    let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&APPID=4aa9a70d507ed98584e3b1232bfd25fb`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&APPID=${token}`;
 
     $.getJSON(url, function (api) {
       let icon = icons[api.weather[0].icon];
@@ -42,9 +44,6 @@ $(document).ready(function () {
       let city = api.name.toLowerCase();
       let country = api.sys.country;
       let temp = Math.round(api.main.temp);
-
-      // Capitalize description
-      // description = description[0].toUpperCase() + description.slice(1);
 
       $("#title").html(`L${icon}cal Weather`);
       $("#location").html(`${city}, ${country}`)
