@@ -27,27 +27,30 @@ $(document).ready(function () {
   // Get weather for current location
   if (geo) {
     geo.getCurrentPosition(function (position) {
-      getWeather(position.coords.latitude, position.coords.longitude);
+      let lat = position.coords.latitude;
+      let lon = position.coords.longitude;
+      getWeather(lat, lon);
     });
   }
 
   function getWeather(lat, lon) {
-    $.getJSON(
-      `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&APPID=4aa9a70d507ed98584e3b1232bfd25fb`,
-      function (api) {
-        let icon = icons[api.weather[0].icon];
-        let description = api.weather[0].description;
-        let city = api.name;
-        let country = api.sys.country;
-        let temp = Math.round(api.main.temp);
+    let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&APPID=4aa9a70d507ed98584e3b1232bfd25fb`;
 
-        // Capitalize description
-        description = description[0].toUpperCase() + description.slice(1);
-  
-        $("#title").html(`L${icon}cal Weather`);
-        $("#description").html(`${description} in ${city}, ${country}`);
-        $("#celcius").html(temp);
-        $("#fahrenheit").html(Math.round(temp * 9/5 + 32));
-      });
+    $.getJSON(url, function (api) {
+      let icon = icons[api.weather[0].icon];
+      let description = api.weather[0].description;
+      let city = api.name.toLowerCase();
+      let country = api.sys.country;
+      let temp = Math.round(api.main.temp);
+
+      // Capitalize description
+      // description = description[0].toUpperCase() + description.slice(1);
+
+      $("#title").html(`L${icon}cal Weather`);
+      $("#location").html(`${city}, ${country}`)
+      $("#description").html(`${description}`);
+      $("#celcius").html(temp);
+      $("#fahrenheit").html(Math.round(temp * 9 / 5 + 32));
+    });
   }
 });

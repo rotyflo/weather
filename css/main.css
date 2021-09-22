@@ -1,49 +1,8 @@
 body {
-  text-align: center;
-  font-size: 36px;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
+  font-size: 18px;
 }
 
 #title {
-  background-color: #03A9F4;
-  color: white;
-  margin: 0;
-  padding: 20px;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-}
-
-#temperature {
-  display: inline;
-}
-
-button {
-  line-height: 0;
-  border-style: none;
-  border-radius: 50%;
-  font-size: 36px;
-  padding: 0;
-  height: 36px;
-  width: 36px;
-  color: white;
-  background-color: #9E9E9E;
-  animation-name: sink;
-  animation-duration: 0.2s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
-}
-
-button:hover {
-  animation-name: rise;
-  animation-duration: 0.2s;
-  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes sink {
-  from {box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);}
-  to {box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);}
-}
-
-@keyframes rise {
-  from {box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);}
-  to {box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);}
+  color: #03A9F4;
+  font-size: xx-large;
 }
