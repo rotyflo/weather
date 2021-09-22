@@ -46,24 +46,8 @@ $(document).ready(function () {
   
         $("#title").html(`L${icon}cal Weather`);
         $("#description").html(`${description} in ${city}, ${country}`);
-        $("#temperature").html(temp);
-        $("#units").html("<i class='wi wi-celsius'></i>");
+        $("#celcius").html(temp);
+        $("#fahrenheit").html(Math.round(temp * 9/5 + 32));
       });
   }
-
-  // Convert C <> F
-  $("#units").on("click", function() {
-    let temp = $("#temperature").html();
-    let units = $("#units").html();
-    let c = "<i class='wi wi-celsius'></i>";
-    let f = "<i class='wi wi-fahrenheit'></i>";
-
-    if (units.indexOf("celsius") !== -1) {
-      $("#temperature").html(Math.round(temp * 9/5 + 32));
-      $("#units").html(f);
-    } else {
-      $("#temperature").html(Math.round((temp - 32) * 5/9));
-      $("#units").html(c);
-    }
-  });
 });
