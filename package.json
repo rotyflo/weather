@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/rotyflo/weather/issues"
   },
-  "homepage": "https://github.com/rotyflo/weather#readme"
+  "homepage": "https://github.com/rotyflo/weather#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
