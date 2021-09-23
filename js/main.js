@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  const apiKey = process.env.API_KEY;
+
   var geo = navigator.geolocation;
   var icons = {
     "01d": "<i class='wi wi-day-sunny'></i>",
@@ -33,10 +35,8 @@ $(document).ready(function () {
     });
   }
 
-  let token = "";//process.env.TOKEN;
-
   function getWeather(lat, lon) {
-    let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&APPID=${token}`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&APPID=${apiKey}`;
 
     $.getJSON(url, function (api) {
       let icon = icons[api.weather[0].icon];
