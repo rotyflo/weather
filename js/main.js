@@ -1,7 +1,6 @@
-$(document).ready(function () {
-  require("dotenv").config();
-  const apiKey = process.env.API_KEY;
+const apiKey = process.env.API_KEY;
 
+$(document).ready(function () {
   var geo = navigator.geolocation;
   var icons = {
     "01d": "<i class='wi wi-day-sunny'></i>",
