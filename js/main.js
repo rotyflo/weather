@@ -1,5 +1,3 @@
-const apiKey = process.env.API_KEY;
-
 $(document).ready(function () {
   var geo = navigator.geolocation;
   var icons = {
