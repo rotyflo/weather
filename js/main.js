@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  require("dotenv").config();
   const apiKey = process.env.API_KEY;
 
   var geo = navigator.geolocation;
