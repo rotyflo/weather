@@ -1,16 +1,18 @@
 $(document).ready(function () {
   let geo = navigator.geolocation;
   let output = document.getElementById("output");
+  let location;
   
-  // Get weather for current location
+  // Geolocation functionality
   if (geo) {
-    geo.getCurrentPosition(function (position) {
+    geo.getCurrentPosition( (position) => {
       let lat = position.coords.latitude;
       let lon = position.coords.longitude;
-      getWeather(lat, lon);
+      getForecastURL(lat, lon);
     });
   }
 
+  // Search functionality
   let query = document.getElementById("query");
   let submitButton = document.getElementById("submit-button");
 
@@ -24,12 +26,14 @@ $(document).ready(function () {
     }
   });
 
+  // Start function definitions
   function getLatLon(city) {
     let url = `https://nominatim.openstreetmap.org/search.php?q=${city}&format=jsonv2`;
 
     $.getJSON(url, (data) => {
       let lat = data[0].lat;
       let lon = data[0].lon;
+      location = data[0].display_name;
 
       getForecastURL(lat, lon);
     });
@@ -39,15 +43,16 @@ $(document).ready(function () {
     let url = `https://api.weather.gov/points/${lat},${lon}`;
 
     $.getJSON(url, (data) => {
-      getWeather(data.properties.forecast);
+      let forecastURL = data.properties.forecast;
+      outputWeather(forecastURL);
     });
   }
 
-  function getWeather(url) {
+  function outputWeather(url) {
     $.getJSON(url, (data) => {
       let periods = data.properties.periods;
 
-      output.innerHTML = "";
+      output.innerHTML = `<h3>${location}</h3>`;
 
       for (let i = 0; i < periods.length; i++) {
         let period = data.properties.periods[i];
