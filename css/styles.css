@@ -1,1 +1,7 @@
 @import url("https://rotyflo.github.io/css/terminal.css");
+
+img {
+  height: 50px;
+  width: 50px;
+  border: solid black 1px;
+}

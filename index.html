@@ -8,30 +8,23 @@
 
   <title>Local Weather</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
   <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body class="container">
   <header>
-    <h1 id="title">Loading...</h1>
+    <h1 id="title">Local Weather</h1>
   </header>
 
   <hstack spacing=xxs>
     <input type="text" id="query" placeholder="City or Zip Code">
-    <button type="button" id="search-button" class="btn btn-primary">Search</button>
+    <button type="button" id="submit-button" class="btn btn-primary">Search</button>
   </hstack>
   <br>
 
-  <div>
-    <p><b>Location:</b> <span id="location"></span></p>
-    <p><b>Description:</b> <span id="description"></span></p>
-    <p><b>Temperature:</b> <span id="fahrenheit">??</span> f / <span id="celcius">??</span> c</p>
-  </div>
-
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="js/script.js"></script>
+  <div id="output"></div>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="js/script.js"></script>
 </html>
