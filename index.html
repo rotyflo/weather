@@ -9,29 +9,29 @@
   <title>Local Weather</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/holiday.css@0.9.8" />
-  <link rel="stylesheet" href="https://unpkg.com/pyloncss@latest/css/pylon.css"/>
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body>
+<body class="container">
   <header>
-    <p><b id="title">Loading...</b></p>
+    <h1 id="title">Loading...</h1>
   </header>
 
-  <hstack spacing=s>
-  <input type="text" id="query" placeholder="city or zip code">
-  <button type="button" id="search-button">search</button>
-</hstack>
+  <hstack spacing=xxs>
+    <input type="text" id="query" placeholder="City or Zip Code">
+    <button type="button" id="search-button" class="btn btn-primary">Search</button>
+  </hstack>
+  <br>
 
   <div>
-    <p><b>location:</b> <span id="location"></span></p>
-    <p><b>description:</b> <span id="description"></span></p>
-    <p><b>temperature:</b> <span id="fahrenheit">??</span> f / <span id="celcius">??</span> c</p>
+    <p><b>Location:</b> <span id="location"></span></p>
+    <p><b>Description:</b> <span id="description"></span></p>
+    <p><b>Temperature:</b> <span id="fahrenheit">??</span> f / <span id="celcius">??</span> c</p>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
