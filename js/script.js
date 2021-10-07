@@ -21,8 +21,8 @@ $(document).ready(function () {
     "50n": "<i class='wi wi-dust'></i>"
   }
 
-  // Initialize location to Manhattan
-  getWeather(40.79, -73.97);
+  // Initialize location to Seattle
+  getWeather("2490383");
 
   // Get weather for current location
   if (geo) {
@@ -33,21 +33,34 @@ $(document).ready(function () {
     });
   }
 
-  function getWeather(lat, lon) {
-    let url = `https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${lat}&lon=${lon}&APPID=${apiKey}`;
+  function getWeather(woeid) {
+    let url = `https://goweather.herokuapp.com/weather/Seattle`;
 
-    $.getJSON(url, function (api) {
-      let icon = icons[api.weather[0].icon];
-      let description = api.weather[0].description;
-      let city = api.name.toLowerCase();
-      let country = api.sys.country;
-      let temp = Math.round(api.main.temp);
+    fetch(url, {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      credentials: "include"
+    })
+      .then(response => response.json())
+      .then(data => console.log(data));
 
-      $("#title").html(`L${icon}cal Weather`);
-      $("#location").html(`${city}, ${country}`)
-      $("#description").html(`${description}`);
-      $("#celcius").html(temp);
-      $("#fahrenheit").html(Math.round(temp * 9 / 5 + 32));
-    });
+    // $.getJSON(url, function (api) {
+    //   console.log(JSON.stringify(api));
+    //   let icon = icons[api.weather[0].icon];
+    //   let description = api.weather[0].description;
+    //   let city = api.title;
+    //   let country = api.sys.country;
+    //   let temp = Math.round(api.main.temp);
+
+    //   $("#title").html(`L${icon}cal Weather`);
+    //   $("#location").html(`${city}, ${country}`)
+    //   $("#description").html(`${description}`);
+    //   $("#celcius").html(temp);
+    //   $("#fahrenheit").html(Math.round(temp * 9 / 5 + 32));
+    // });
+
+
   }
 });
